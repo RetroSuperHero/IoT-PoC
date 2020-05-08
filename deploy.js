@@ -16,9 +16,6 @@ const deploy = async () => {
 
     const contract = await new web3.eth.Contract(JSON.parse(interface))
         .deploy({ data: "0x" + bytecode, arguments:[100] })
-        // .estimateGas(function(err, gas){
-        //     console.log(gas);
-        // });
         .send({ gas: '2000000', from: accounts[0], gasPrice: '47000000' });
 
     console.log(interface);
